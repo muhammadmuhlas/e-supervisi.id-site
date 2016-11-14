@@ -55,8 +55,8 @@ class Kernel extends HttpKernel
 	    
 	    'administrator' => Middleware\Administrator::class,
 	    'guru' => Middleware\Guru::class,
-	    'kepalasekolah' => Middleware\KepalaSekolah::class,
-	    'operatorsekolah' => Middleware\OperatorSekolah::class,
-	    'pengawassekolah' => Middleware\PengawasSekolah::class,
+	    'kepala-sekolah' => Middleware\KepalaSekolah::class,
+	    'operator-sekolah' => Middleware\OperatorSekolah::class,
+	    'pengawas-sekolah' => Middleware\PengawasSekolah::class,
     ];
 }

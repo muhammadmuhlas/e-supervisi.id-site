@@ -35,11 +35,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
+//        $this->mapApiRoutes();
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapAdministratorRoutes();
+	
+	    $this->mapGuru();
+	
+	    $this->mapKepalaSekolah();
+	
+	    $this->mapPengawasSekolahRoutes();
+	
+	    $this->mapOperatorSekolah();
     }
 
     /**
@@ -76,4 +84,60 @@ class RouteServiceProvider extends ServiceProvider
             require base_path('routes/api.php');
         });
     }
+	
+
+	protected function mapAdministratorRoutes()
+	{
+		Route::group([
+			'middleware' => ['auth', 'web', 'administrator'],
+			'namespace' => $this->namespace,
+			'prefix' => 'administrator'
+		], function ($router) {
+			require base_path('routes/administrator.php');
+		});
+	}
+	
+	protected function mapPengawasSekolahRoutes()
+	{
+		Route::group([
+			'middleware' => ['auth', 'web', 'pengawas-sekolah'],
+			'namespace' => $this->namespace,
+			'prefix' => 'pengawas-sekolah'
+		], function ($router) {
+			require base_path('routes/pengawas-sekolah.php');
+		});
+	}
+	
+	protected function mapOperatorSekolah()
+	{
+		Route::group([
+			'middleware' => ['auth', 'web', 'operator-sekolah'],
+			'namespace' => $this->namespace,
+			'prefix' => 'operator-sekolah'
+		], function ($router) {
+			require base_path('routes/operator-sekolah.php');
+		});
+	}
+	
+	protected function mapGuru()
+	{
+		Route::group([
+			'middleware' => ['auth', 'web', 'guru'],
+			'namespace' => $this->namespace,
+			'prefix' => 'guru'
+		], function ($router) {
+			require base_path('routes/guru.php');
+		});
+	}
+	
+	protected function mapKepalaSekolah()
+	{
+		Route::group([
+			'middleware' => ['auth', 'web', 'kepala-sekolah'],
+			'namespace' => $this->namespace,
+			'prefix' => 'kepala-sekolah'
+		], function ($router) {
+			require base_path('routes/kepala-sekolah.php');
+		});
+	}
 }
