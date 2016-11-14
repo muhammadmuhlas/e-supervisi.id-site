@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class PengawasSekolah
 {
@@ -15,6 +16,11 @@ class PengawasSekolah
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+	    if (Auth::user()->id_pengawas_sekolah <> 0){
+		
+		    return $next($request);
+	    }
+	
+	    return redirect(404);
     }
 }
