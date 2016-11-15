@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>E-Supervisi | Masuk</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{ url('assets/') }}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -18,10 +18,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>ABSIS</b>2.0</a>
+        <img src="{{ url('images/logo/logo-kemdikbud.png') }}">
+        <br>
+        <a href="#"><b>E-S</b>upervisi</a>
     </div>
     <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Sialakan Masukkan Akun Anda</p>
         <form action="" method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback">
@@ -36,17 +38,17 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="remember"> Remember Me
+                            <input type="checkbox" name="remember"> Ingat Saya
                         </label>
                     </div>
                 </div>
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
                 </div>
             </div>
         </form>
-        {{--<a href="#">I forgot my password</a><br>--}}
-        {{--<a href="register.html" class="text-center">Register a new membership</a>--}}
+        <a href="#">Lupa Password</a><br>
+        <a href="register.html" class="text-center">Buat Akun Baru</a>
     </div>
 </div>
 <script src="{{ url('assets/') }}/plugins/jQuery/jquery-2.2.3.min.js"></script>

@@ -14,7 +14,7 @@ class UserController extends Controller
 			return redirect('/landing');
 		} else {
 			
-			return "Welcome to ABSIS";
+			return redirect('/login');
 		}
 	}
     public function landing(){
