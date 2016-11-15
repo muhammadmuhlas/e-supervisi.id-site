@@ -16,11 +16,18 @@ class KepalaSekolah
      */
     public function handle($request, Closure $next)
     {
-	    if (Auth::user()->id_kepala_sekolah <> 0){
+	    if (Auth::user()) {
 		
-		    return $next($request);
+		    if (Auth::user()->id_kepala_sekolah <> null){
+			
+			    return $next($request);
+		    }
+		
+		    /*redirect if column id_... is empty*/
+		    return redirect('/');
 	    }
 	
-	    return redirect(404);
+	    /*redirect if not auth*/
+	    return redirect('/');
     }
 }

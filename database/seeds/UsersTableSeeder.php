@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
 		
 	    /*Kepala Sekolah*/
 	    $id = DB::table('data_kepala_sekolah')->insertGetId([
-		    'name' => "Kepala Sekolah 1",
+		    'name' => "Kepala Sekloah 1",
 		    'created_at' => Carbon::now(),
 	    ]);
 	

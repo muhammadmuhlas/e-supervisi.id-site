@@ -1,5 +1,8 @@
 <?php
 
 Route::get('/', function () {
-	return "Hello...";
+	$users[] = Auth::user();
+	$users[] = Auth::guard()->user();
+	
+	dd($users);
 });

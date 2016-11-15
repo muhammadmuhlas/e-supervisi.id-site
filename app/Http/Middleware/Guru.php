@@ -14,13 +14,21 @@ class Guru
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+	public function handle($request, Closure $next)
     {
-	    if (Auth::user()->id_guru <> 0){
+	    if (Auth::user()) {
 		
-		    return $next($request);
+		    if (Auth::user()->id_guru <> null){
+			
+			    return $next($request);
+		    }
+			
+		    /*redirect if column id_... is empty*/
+		    return redirect('/');
 	    }
 	    
-	    return redirect(404);
+		/*redirect if not auth*/
+	    return redirect('/');
     }
+	
 }

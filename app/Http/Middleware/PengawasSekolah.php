@@ -14,13 +14,20 @@ class PengawasSekolah
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-	    if (Auth::user()->id_pengawas_sekolah <> 0){
+	public function handle($request, Closure $next)
+	{
+		if (Auth::user()) {
+			
+			if (Auth::user()->id_pengawas_sekolah <> null){
+				
+				return $next($request);
+			}
+			
+			/*redirect if column id_... is empty*/
+			return redirect('/');
+		}
 		
-		    return $next($request);
-	    }
-	
-	    return redirect(404);
-    }
+		/*redirect if not auth*/
+		return redirect('/');
+	}
 }

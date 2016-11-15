@@ -14,13 +14,20 @@ class Administrator
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        if (Auth::user()->id_administrator <> 0){
-	
-	        return $next($request);
-        }
-        
-        return redirect(404);
-    }
+	public function handle($request, Closure $next)
+	{
+		if (Auth::user()) {
+			
+			if (Auth::user()->id_administrator <> null){
+				
+				return $next($request);
+			}
+			
+			/*redirect if column id_... is empty*/
+			return redirect('/');
+		}
+		
+		/*redirect if not auth*/
+		return redirect('/');
+	}
 }

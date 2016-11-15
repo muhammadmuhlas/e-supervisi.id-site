@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$users[] = Auth::user();
+	dd($users);
 });
 
-//Auth::routes();
+Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::post('/login', 'Auth\LoginController@login');
+Route::any('/logout', 'Auth\LoginController@logout');

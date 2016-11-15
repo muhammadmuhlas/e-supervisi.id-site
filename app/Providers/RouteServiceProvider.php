@@ -89,7 +89,7 @@ class RouteServiceProvider extends ServiceProvider
 	protected function mapAdministratorRoutes()
 	{
 		Route::group([
-			'middleware' => ['auth', 'web', 'administrator'],
+			'middleware' => ['web', 'administrator'],
 			'namespace' => $this->namespace,
 			'prefix' => 'administrator'
 		], function ($router) {
@@ -100,7 +100,7 @@ class RouteServiceProvider extends ServiceProvider
 	protected function mapPengawasSekolahRoutes()
 	{
 		Route::group([
-			'middleware' => ['auth', 'web', 'pengawas-sekolah'],
+			'middleware' => ['web', 'pengawas-sekolah'],
 			'namespace' => $this->namespace,
 			'prefix' => 'pengawas-sekolah'
 		], function ($router) {
@@ -111,7 +111,7 @@ class RouteServiceProvider extends ServiceProvider
 	protected function mapOperatorSekolah()
 	{
 		Route::group([
-			'middleware' => ['auth', 'web', 'operator-sekolah'],
+			'middleware' => ['web', 'operator-sekolah'],
 			'namespace' => $this->namespace,
 			'prefix' => 'operator-sekolah'
 		], function ($router) {
@@ -122,7 +122,7 @@ class RouteServiceProvider extends ServiceProvider
 	protected function mapGuru()
 	{
 		Route::group([
-			'middleware' => ['auth', 'web', 'guru'],
+			'middleware' => ['web', 'guru'],
 			'namespace' => $this->namespace,
 			'prefix' => 'guru'
 		], function ($router) {
@@ -133,7 +133,7 @@ class RouteServiceProvider extends ServiceProvider
 	protected function mapKepalaSekolah()
 	{
 		Route::group([
-			'middleware' => ['auth', 'web', 'kepala-sekolah'],
+			'middleware' => ['web', 'kepala-sekolah'],
 			'namespace' => $this->namespace,
 			'prefix' => 'kepala-sekolah'
 		], function ($router) {
