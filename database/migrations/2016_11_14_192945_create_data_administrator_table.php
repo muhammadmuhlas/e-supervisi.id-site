@@ -15,7 +15,6 @@ class CreateDataAdministratorTable extends Migration
     {
 	    Schema::create('data_administrator', function (Blueprint $table) {
 		    $table->increments('id');
-		    $table->string('name');
 		    $table->timestamps();
 	    });
     }

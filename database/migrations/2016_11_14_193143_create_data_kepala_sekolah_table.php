@@ -15,7 +15,6 @@ class CreateDataKepalaSekolahTable extends Migration
     {
 	    Schema::create('data_kepala_sekolah', function (Blueprint $table) {
 		    $table->increments('id');
-		    $table->string('name');
 		    $table->timestamps();
 	    });
     }

@@ -15,7 +15,6 @@ class CreateDataOperatorSekolahTable extends Migration
     {
 	    Schema::create('data_operator_sekolah', function (Blueprint $table) {
 		    $table->increments('id');
-		    $table->string('name');
 		    $table->timestamps();
 	    });
     }

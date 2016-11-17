@@ -15,63 +15,66 @@ class UsersTableSeeder extends Seeder
     {
 	    /*Administrator*/
 	    $id = DB::table('data_administrator')->insertGetId([
-		
-		    'name' => "Administrator 1",
 		    'created_at' => Carbon::now(),
 	    ]);
 	    
 	    DB::table('users')->insert([
+		    'name' => "Al-Administrator",
+		    'email' => 'administrator@e-supervisi.id',
 	    	'username' => 'administrator',
-		    'password' => bcrypt(123456),
+		    'password' => bcrypt(123123),
 		    'id_administrator' => $id
 	    ]);
 	    
 	    /*Pengawas Sekolah*/
 	    $id = DB::table('data_pengawas_sekolah')->insertGetId([
-		
-		    'name' => "Pengawas Sekolah 1",
 		    'created_at' => Carbon::now()
 	    ]);
 	
 	    DB::table('users')->insert([
+		    'name' => "Al-Pengawas Sekolah",
+		    'email' => 'pengawas_sekolah@e-supervisi.id',
 		    'username' => 'pengawas_sekolah',
-		    'password' => bcrypt(123456),
+		    'password' => bcrypt(123123),
 		    'id_pengawas_sekolah' => $id
 	    ]);
 		
 	    /*Operator Sekolah*/
 	    $id = DB::table('data_operator_sekolah')->insertGetId([
-		    'name' => "Operator Sekolah 1",
 		    'created_at' => Carbon::now(),
 	    ]);
 	
 	    DB::table('users')->insert([
+		    'name' => "Al-Operator Sekolah",
+		    'email' => 'operator_sekolah@e-supervisi.id',
 		    'username' => 'operator_sekolah',
-		    'password' => bcrypt(123456),
+		    'password' => bcrypt(123123),
 		    'id_operator_sekolah' => $id
 	    ]);
 		
 	    /*Kepala Sekolah*/
 	    $id = DB::table('data_kepala_sekolah')->insertGetId([
-		    'name' => "Kepala Sekloah 1",
 		    'created_at' => Carbon::now(),
 	    ]);
 	
 	    DB::table('users')->insert([
+		    'name' => "Al-Kepala Sekolah",
+		    'email' => 'kepala_sekolah@e-supervisi.id',
 		    'username' => 'kepala_sekolah',
-		    'password' => bcrypt(123456),
+		    'password' => bcrypt(123123),
 		    'id_kepala_sekolah' => $id
 	    ]);
 	    
 		/*Guru*/
 	    $id = DB::table('data_guru')->insertGetId([
-		    'name' => "Guru 1",
 		    'created_at' => Carbon::now(),
 	    ]);
 	
 	    DB::table('users')->insert([
+		    'name' => "Al-Guru",
+		    'email' => 'guru@e-supervisi.id',
 		    'username' => 'guru',
-		    'password' => bcrypt(123456),
+		    'password' => bcrypt(123123),
 		    'id_guru' => $id
 	    ]);
 	    

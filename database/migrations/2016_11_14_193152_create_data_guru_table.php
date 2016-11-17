@@ -15,7 +15,6 @@ class CreateDataGuruTable extends Migration
     {
 	    Schema::create('data_guru', function (Blueprint $table) {
 		    $table->increments('id');
-		    $table->string('name');
 		    $table->timestamps();
 	    });
     }

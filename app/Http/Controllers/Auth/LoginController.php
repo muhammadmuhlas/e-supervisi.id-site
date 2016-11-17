@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,17 +38,37 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
     
-    
-    /**
-     * Code By Muhammad Muhlas
-     */
-    
     /**
      * Change Column From 'email' to 'username' When Logging In
      * */
 	public function username(){
 		
 		return 'username';
+	}
+	
+	/**
+	 * Double Check If Username Fails -> Check With Email
+	 * */
+	protected function sendFailedLoginResponse(Request $request)
+	{
+		if (Auth::attempt(['email' => $request->input('username'), 'password' => $request->input('password')])) {
+			
+			return $this->sendLoginResponse($request);
+		}
+		
+		return redirect()->back()
+			->withInput($request->only($this->username(), 'remember'))
+			->withErrors([
+				$this->username() => Lang::get('auth.failed'),
+			]);
+	}
+	
+	/**
+	 * When Authenticated
+	 */
+	protected function authenticated(Request $request, $user)
+	{
+		//logging or maybe check something...
 	}
 	
 }

@@ -15,7 +15,6 @@ class CreateDataPengawasSekolahTable extends Migration
     {
 	    Schema::create('data_pengawas_sekolah', function (Blueprint $table) {
 		    $table->increments('id');
-		    $table->string('name');
 		    $table->timestamps();
 	    });
     }
