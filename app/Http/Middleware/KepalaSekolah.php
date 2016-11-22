@@ -20,6 +20,7 @@ class KepalaSekolah
 		
 		    if (Auth::user()->id_kepala_sekolah <> null){
 			
+			    $request->session()->put('default_home', '/kepala-sekolah');
 			    return $next($request);
 		    }
 		

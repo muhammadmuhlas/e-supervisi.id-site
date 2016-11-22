@@ -20,6 +20,7 @@ class OperatorSekolah
 			
 			if (Auth::user()->id_operator_sekolah <> null){
 				
+				$request->session()->put('default_home', '/operator-sekolah');
 				return $next($request);
 			}
 			

@@ -1,27 +1,48 @@
 @extends('layouts.app')
 
 @section('title')
-    Landing Page
+    Selamat Datang
 @endsection
 
 @section('content')
-    <div class="row hidden-xs hidden-sm" style="padding-top: 10%"></div>
-    <div class="row hidden-md hidden-lg" style="padding-top: 10%"></div>
+    <div class="row text-center">
+        <div class="box no-border">
+            <div class="box-body clearfix">
+                <h3>
+                    Informasi Akun
+                </h3>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-4 col-sm-2 "></div>
         <div class="col-md-4 col-sm-8">
             <div class="box box-solid">
-                <div class="box-header with-border text-center text-bold">
-                    <h3 class="box-title">Selamat Datang, <span class="hidden-md hidden-lg"><br></span>{{ \Illuminate\Support\Str::title(Auth::user()->name) }}</h3>
-                </div>
-                <div class="box-body clearfix text-center">
-                    <span class="text-justify">
-                        <p>Anda, <b>{{ \Illuminate\Support\Str::title(Auth::user()->name) }}</b> dengan Email <b>{{ Auth::user()->email}}</b>, dan Username <b>{{ Auth::user()->username }}</b>, telah terdaftar di <b>E-Supervisi</b>. <br>Untuk melanjutkan silakan tekan tombol dibawah ini</p>
+                <div class="box-body clearfix">
+                   <span>
+                        <h4 class="text-center text-bold">Selamat Bekerja</h4>
+                        <p class="text-center">Anda terdaftar dengan
+                            <br>Email : <b>{{ Auth::user()->email}}</b>
+                            <br />
+                            Username :<b>{{ Auth::user()->username }}</b>
+                            <br />
+                        </p>
                     </span>
-                    @foreach($redirects as $redirect)
-                        {!! $redirect !!}
-                    @endforeach
-
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            @foreach($redirects as $redirect)
+                                @if($redirect->name == 'Logout')
+                                    <p class="text-bold text-center text-bold">Anda tidak terdaftar di jenis akun apapun !</p>
+                                    <a href="{{ url($redirect->url) }}" type="button" class="btn btn-danger btn-block flat"><span class="text-bold"> {{ $redirect->name }}</span></a>
+                                @else
+                                    <a href="{{ url($redirect->url) }}" type="button" class="btn btn-primary btn-block flat">Lanjut Sebagai <span class="text-bold"> {{ $redirect->name }}</span></a>
+                                @endif
+                            @endforeach
+                                &nbsp;
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
                 </div>
             </div>
         </div>

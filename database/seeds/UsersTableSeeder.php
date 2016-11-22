@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 	    
 	    DB::table('users')->insert([
-		    'name' => "Al-Administrator",
+		    'name' => "aku_adalah_Administrator",
 		    'email' => 'administrator@e-supervisi.id',
 	    	'username' => 'administrator',
 		    'password' => bcrypt(123123),
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 	
 	    DB::table('users')->insert([
-		    'name' => "Al-Pengawas Sekolah",
+		    'name' => "aku_adalah_pengawas_sekolah",
 		    'email' => 'pengawas_sekolah@e-supervisi.id',
 		    'username' => 'pengawas_sekolah',
 		    'password' => bcrypt(123123),
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 	
 	    DB::table('users')->insert([
-		    'name' => "Al-Operator Sekolah",
+		    'name' => "aku_adalah_operator_sekolah",
 		    'email' => 'operator_sekolah@e-supervisi.id',
 		    'username' => 'operator_sekolah',
 		    'password' => bcrypt(123123),
@@ -58,7 +58,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 	
 	    DB::table('users')->insert([
-		    'name' => "Al-Kepala Sekolah",
+		    'name' => "aku_adalah_kepala_sekolah",
 		    'email' => 'kepala_sekolah@e-supervisi.id',
 		    'username' => 'kepala_sekolah',
 		    'password' => bcrypt(123123),
@@ -71,7 +71,7 @@ class UsersTableSeeder extends Seeder
 	    ]);
 	
 	    DB::table('users')->insert([
-		    'name' => "Al-Guru",
+		    'name' => "aku_adalah_guru",
 		    'email' => 'guru@e-supervisi.id',
 		    'username' => 'guru',
 		    'password' => bcrypt(123123),

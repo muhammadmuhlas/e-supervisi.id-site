@@ -20,6 +20,7 @@ class Administrator
 			
 			if (Auth::user()->id_administrator <> null){
 				
+				$request->session()->put('default_home', '/administrator');
 				return $next($request);
 			}
 			

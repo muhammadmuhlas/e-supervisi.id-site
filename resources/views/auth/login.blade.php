@@ -27,20 +27,26 @@
         <form action="" method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback {{ $errors->has('username') ? 'has-error' : '' }}">
-                <input type="text" class="form-control" placeholder="Username" name="username">
+                @if ($errors->has('username'))
+                    <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Perikasa Lagi Username atau Email Anda</label>
+                @endif
+                <input type="text" class="form-control" placeholder="Username" name="username" value="{{ old('username') }}">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 @if ($errors->has('username'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('username') }}</strong>
+                        {{ $errors->first('username') }}
                     </span>
                 @endif
             </div>
             <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
+                @if ($errors->has('password'))
+                    <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Periksa Lagi Password Anda</label>
+                @endif
                 <input type="password" class="form-control" placeholder="Password" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
+                        {{ $errors->first('password') }}
                     </span>
                 @endif
             </div>
@@ -57,8 +63,8 @@
                 </div>
             </div>
         </form>
-        <a href="#">Lupa Password</a><br>
-        <a href="register.html" class="text-center">Buat Akun Baru</a>
+        {{--<a href="#">Lupa Password</a><br>--}}
+        {{--<a href="#" class="text-center">Buat Akun Baru</a>--}}
     </div>
 </div>
 <script src="{{ url('assets/') }}/plugins/jQuery/jquery-2.2.3.min.js"></script>

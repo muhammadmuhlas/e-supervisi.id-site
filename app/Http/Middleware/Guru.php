@@ -19,7 +19,8 @@ class Guru
 	    if (Auth::user()) {
 		
 		    if (Auth::user()->id_guru <> null){
-			
+			    
+			    $request->session()->put('default_home', '/guru');
 			    return $next($request);
 		    }
 			

@@ -27,55 +27,65 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     @if(explode('/', $_SERVER['REQUEST_URI'])[1] == 'administrator')
-                        <li class="dropdown user-type user-menu">
-                            <a href="#">
+                        <li>
+                            <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
                             <span class="">
                                 Administrator
                             </span>
                             </a>
                         </li>
                     @elseif(explode('/', $_SERVER['REQUEST_URI'])[1] == 'kepala-sekolah')
-                        <li class="dropdown user-type user-menu">
-                            <a href="#">
+                        <li>
+                            <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
                             <span class="">
                                 Kepala Sekolah
                             </span>
                             </a>
                         </li>
-                    @elseif(explode('/', $_SERVER['REQUEST_URI'])[1] == 'operator-sekolah')
-                        <li class="dropdown user-type user-menu">
-                            <a href="#">
-                            <span class="">
-                                Operator Sekolah
-                            </span>
-                            </a>
-                        </li>
                     @elseif(explode('/', $_SERVER['REQUEST_URI'])[1] == 'pengawas-sekolah')
-                        <li class="dropdown user-type user-menu">
-                            <a href="#">
+                        <li>
+                            <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
                             <span class="">
                                 Pengawas Sekolah
                             </span>
                             </a>
                         </li>
+                    @elseif(explode('/', $_SERVER['REQUEST_URI'])[1] == 'operator-sekolah')
+                        <li>
+                            <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
+                            <span class="">
+                                Operator Sekolah
+                            </span>
+                            </a>
+                        </li>
                     @elseif(explode('/', $_SERVER['REQUEST_URI'])[1] == 'guru')
-                        <li class="dropdown user-type user-menu">
-                            <a href="#">
+                        <li>
+                            <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
                             <span class="">
                                 Guru
                             </span>
                             </a>
                         </li>
                     @else
+                        <li>
+                            <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
+                            <span class="">
+                                Informasi Akun
+                            </span>
+                            </a>
+                        </li>
                     @endif
-                    <li class="dropdown user user-menu">
-                        <a href="#">
-                            <img src="{{ url('assets') }}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                    <li class="dropdown user user-menu hidden-xs hidden-sm">
+                        <a onMouseOver="this.style.background='#3c8dbc'" onMouseOut="this.style.background='#3c8dbc'" style="cursor: default">
+                            {{--<img src="{{ url('assets') }}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}}
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
                     </li>
-                    <li class="bg-red text-bold">
-                        <a href="{{ url('logout') }}" data-toggle="control-sidebar">Keluar</a>
+                    <li class="bg-orange text-bold" style="cursor: pointer; cursor: hand;">
+                        <a data-toggle="control-sidebar" onclick="setting();">Pengaturan</a>
+                    </li>
+                    <li class="bg-red text-bold" style="cursor: pointer; cursor: hand;">
+                        <a data-toggle="control-sidebar" onclick="logout();">Keluar</a>
                     </li>
                 </ul>
             </div>
@@ -83,17 +93,31 @@
     </header>
     <div class="content-wrapper">
         @yield('content')
+        <div class="row text-center">
+            <img src="{{ url('images/logo/logo-kemdikbud-outline.png') }}" width="111px">
+        </div>
     </div>
-    <footer class="main-footer">
+    <footer class="main-footer" style="z-index: 1000">
         <div class="pull-right hidden-xs">
             <b>Version</b> Alpha
         </div>
         <strong>Copyright &copy; 2016 All rights
             reserved.
+        </strong>
     </footer>
 </div>
 <script src="{{ url('assets') }}/plugins/jQuery/jquery-2.2.3.min.js"></script>
 @yield('custom-js')
+<script>
+    function logout() {
+        url = '/logout';
+        window.location = url;
+    }
+    function setting() {
+        url = '/setting';
+        window.location = url;
+    }
+</script>
 <script src="{{ url('assets') }}/bootstrap/js/bootstrap.min.js"></script>
 <script src="{{ url('assets') }}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="{{ url('assets') }}/plugins/fastclick/fastclick.js"></script>

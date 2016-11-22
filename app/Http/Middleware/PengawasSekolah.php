@@ -20,6 +20,7 @@ class PengawasSekolah
 			
 			if (Auth::user()->id_pengawas_sekolah <> null){
 				
+				$request->session()->put('default_home', '/pengawas-sekolah');
 				return $next($request);
 			}
 			
