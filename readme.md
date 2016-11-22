@@ -10,7 +10,8 @@ Just it is what it is; can be accessed trough <a href="e-supervisi.id">E-Supervi
 4. php artisan key:generate
 5. copy .env.example -> .env and modify the database connection
 6. php artisan migrate:refresh --seed
-7. php artisan seed
+7. php artisan serve
+8. Open localhost:8000
 
 ## Bug Reporting
 
