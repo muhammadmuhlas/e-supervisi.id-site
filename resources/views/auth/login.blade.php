@@ -30,7 +30,7 @@
                 @if ($errors->has('username'))
                     <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Perikasa Lagi Username atau Email Anda</label>
                 @endif
-                <input type="text" class="form-control" placeholder="Username" name="username" value="{{ old('username') }}">
+                <input type="text" class="form-control" placeholder="Username atau Email" name="username" value="{{ old('username') }}">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 @if ($errors->has('username'))
                     <span class="help-block">

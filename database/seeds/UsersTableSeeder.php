@@ -77,6 +77,39 @@ class UsersTableSeeder extends Seeder
 		    'password' => bcrypt(123123),
 		    'id_guru' => $id
 	    ]);
+	
+	    /*All*/
+	    $id_guru = DB::table('data_guru')->insertGetId([
+		    'created_at' => Carbon::now(),
+	    ]);
+	
+	    $id_kepala_sekolah = DB::table('data_kepala_sekolah')->insertGetId([
+		    'created_at' => Carbon::now(),
+	    ]);
+	
+	    $id_operator_sekolah = DB::table('data_operator_sekolah')->insertGetId([
+		    'created_at' => Carbon::now(),
+	    ]);
+	
+	    $id_pengawas_sekolah = DB::table('data_pengawas_sekolah')->insertGetId([
+		    'created_at' => Carbon::now()
+	    ]);
+	
+	    $id_administrator = DB::table('data_administrator')->insertGetId([
+		    'created_at' => Carbon::now(),
+	    ]);
+	    
+	    DB::table('users')->insert([
+		    'name' => "aku_adalah_all",
+		    'email' => 'all@e-supervisi.id',
+		    'username' => 'all',
+		    'password' => bcrypt(123123),
+		    'id_guru' => $id_guru,
+		    'id_administrator' => $id_administrator,
+			'id_pengawas_sekolah' => $id_pengawas_sekolah,
+			'id_operator_sekolah' => $id_operator_sekolah,
+			'id_kepala_sekolah' => $id_kepala_sekolah
+	    ]);
 	    
     }
 }
